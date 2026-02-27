@@ -43,7 +43,6 @@ struct HomeView: View {
             Image(systemName: "magnifyingglass")
                 .foregroundColor(isHighContrast ? .gray : .black.opacity(0.4))
             
-            // ## 힌트 텍스트 시인성 확보
             ZStack(alignment: .leading) {
                 if inputText.isEmpty {
                     Text("글자를 입력하세요")
