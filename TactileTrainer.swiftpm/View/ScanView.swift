@@ -102,6 +102,7 @@ struct ScanView: View {
             .onAppear {
                 isCameraActive = false
             }
+            .toolbarColorScheme(isHighContrast ? .dark : .light, for: .navigationBar)
             .navigationDestination(isPresented: $isShowingResult) {
                 ScanResultPracticeView(text: scannedText)
             }
