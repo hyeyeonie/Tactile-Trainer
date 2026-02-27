@@ -37,9 +37,15 @@ class TactileHapticManager: ObservableObject {
         let rowHeight = viewHeight / 3
         let row = Int(loc.y / rowHeight).clamped(to: 0...2)
         
-        processTouch(unitIdx: unitIdx, dots: dots, dotIdx: col * 3 + row)
+        let dotIdx = col * 3 + row
+        
+        if dotIdx >= 0 && dotIdx < 6 && dots[dotIdx] == 1 {
+            processTouch(unitIdx: unitIdx, dots: dots, dotIdx: dotIdx)
+        } else {
+            reset()
+        }
     }
-
+    
     private func processTouch(unitIdx: Int, dots: [Int], dotIdx: Int) {
         if dotIdx >= 0 && dotIdx < 6 && dots[dotIdx] == 1 {
             let id = "\(unitIdx)-\(dotIdx)"

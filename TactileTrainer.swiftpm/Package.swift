@@ -30,6 +30,9 @@ let package = Package(
                 .landscapeRight,
                 .landscapeLeft,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
+            ],
+            capabilities: [
+                .camera(purposeString: "주변 글자를 스캔하여 점자로 변환하고 학습하기 위해 카메라 권한을 사용합니다.")
             ]
         )
     ],
