@@ -2,25 +2,25 @@ import SwiftUI
 
 @main
 struct TactileTrainerApp: App {
+    @AppStorage("isHighContrast") private var isHighContrast: Bool = true
+
     var body: some Scene {
         WindowGroup {
             TabView {
+                BasicView()
+                    .tabItem { Label("기초", systemImage: "hand.tap.fill") }
+                
                 HomeView()
-                    .tabItem { Label("연습", systemImage: "hand.tap.fill") }
-                CurriculumView()
-                    .tabItem { Label("코스", systemImage: "book.fill") }
-                SettingsView()
+                    .tabItem { Label("연습", systemImage: "hand.point.up.braille.fill") }
+                
+//                ScanView()
+//                    .tabItem { Label("스캔", systemImage: "viewfinder.circle.fill") }
+                
+                SettingView()
                     .tabItem { Label("설정", systemImage: "gear") }
             }
             .accentColor(TactileTheme.mainColor)
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(isHighContrast ? .dark : .light)
         }
     }
-}
-
-enum TactileTheme {
-    static let mainColor = Color.blue
-    static let highContrastBlack = Color.black
-    static let cardGray = Color(uiColor: .systemGray6)
-    static let activeHighlight = Color.yellow
 }
