@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "TactileTrainer",
+    name: "Tactile Trainer",
     platforms: [
         .iOS("16.0")
     ],
     products: [
         .iOSApplication(
-            name: "TactileTrainer",
+            name: "Tactile Trainer",
             targets: ["AppModule"],
             bundleIdentifier: "com.happy.TactileTrainer",
             displayVersion: "1.0",
